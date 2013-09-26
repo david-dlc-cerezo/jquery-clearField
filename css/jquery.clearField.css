@@ -1,0 +1,19 @@
+.divclearable {
+	display: -moz-inline-stack;
+	display: inline-block;
+	zoom:1;
+	*display:inline;
+	vertical-align:middle;
+	position: relative;
+}
+
+.clearlink {
+	position: absolute;
+	cursor: pointer;
+	display: -moz-inline-stack;
+	display: inline-block;
+	zoom:1;
+	*display:inline;
+	z-index: 2000;
+	border: 0px solid;
+}
