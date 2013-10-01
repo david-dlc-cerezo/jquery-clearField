@@ -32,4 +32,19 @@ Example
 </script>
 ```
 
-![Example](/screenshot-widget.png)
+![Example #1](/example1.png)
+
+
+##Use of ``widthChange``
+Sets the width (in pixels) to add to the input when the empty button is attached.
+````
+<script>
+	$(function(){
+		$('.test').clearField({
+			widthChange: 20
+		});
+	});
+</script>
+````
+![Example #2](/example2a.png)
+![Example #2 explained](/example2b.png)
