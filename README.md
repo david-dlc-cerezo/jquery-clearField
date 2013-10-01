@@ -14,4 +14,17 @@ Requires
 Example
 =======
 
+##Simple usage
 <script src='http://code.jquery.com/jquery-1.9.1.js'></script>
+<script src='http://code.jquery.com/ui/1.10.3/jquery-ui.js'></script>
+<script src='src/jquery.clearField.js'></script>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+<link rel="stylesheet" href="css/jquery.clearField.css">
+
+<p>
+<input name="test1" id="test1" clas="test" type='text'><br/>
+<input name="test2" id="test2" clas="test" type='text' value='abc'>
+</p>
+<script>
+	$('.test').clearField();
+</script>
