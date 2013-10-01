@@ -14,6 +14,6 @@
 	display: inline-block;
 	zoom:1;
 	*display:inline;
-	z-index: 2000;
+	z-index: 1;
 	border: 0px solid;
 }
