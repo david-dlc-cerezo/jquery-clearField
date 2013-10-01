@@ -1,5 +1,5 @@
 /*!
- * jQuery ClearField Widget 1.0pre (2013-09-26)
+ * jQuery ClearField Widget 1.0.0 (2013-10-01)
  * Adds a clear button to the input.
  * 
  * Copyright (c) 2013 David de la Calle
@@ -22,20 +22,18 @@
 		// default configuration
 		var config = $.extend({}, {
 			clearText:			'Clear field',
-			focusAfterClear:	false,
-			widthChange:		10,
+			focusAfterClear:	true,
+			widthChange:		0,
 			top:				'auto',
-			right:				1
+			right:				0
 		}, options);
 	
 		// main function
 		function AttachClearButtonEvent(e) {
-			e.change(function(){			
-				if( !e.val() && (e.parent().hasClass('divclearable')) )
-					_removeClearButton(e);
-				else if( e.val() && !(e.parent().hasClass('divclearable')) )
-					_attachClearButton(e);
-			});
+			if( !e.val() && (e.parent().hasClass('divclearable')) )
+				_removeClearButton(e);
+			else if( e.val() && !(e.parent().hasClass('divclearable')) )
+				_attachClearButton(e);
 		}
 		
 		function _attachClearButton(e)
@@ -45,21 +43,29 @@
 				_changeWidth(e, config.widthChange);
 			
 			//Wrap element
-			e.wrap('<div class="divclearable ' + jQuery(this).attr('class') + '"></div>')
+			e.wrap('<div class="divclearable"></div>');
+			
+			//Calculate top
+			var currentTop = (config.top == 'auto') ? ((e.outerHeight() - 16) / 2) : config.top;
 			
 			//Add clear button			
 			var nClearLink = '<span class="clearlink ui-icon ui-icon-close" title="' + config.clearText + '"></span>';
 			e.parent().append(
 					jQuery(nClearLink)
 						.css('right', config.right)
-						.css('top', config.top)
+						.css('top', currentTop)
 						.click(function() {
 							var field = jQuery(this).prev();
 							field.val('').change();
-							if (!field.attr("readonly") && !field.attr("disabled"))
+							if (!field.attr("readonly") && !field.attr("disabled") && config.focusAfterClear)
 								field.focus();
-				})
+						})
 			);
+
+			$('img.ui-datepicker-trigger').each(function(){
+				if ( $(this).parent('.divclearable').length > 0 )
+					$(this).parent('.divclearable').after(this);
+			});
 		}
 		
 		function _changeWidth(e, widthChange)
@@ -90,15 +96,14 @@
 
 		// initialize every element
 		this.each(function() {
-			AttachClearButtonEvent($(this));
+			var e = $(this)
+			e.change(function(){
+				AttachClearButtonEvent(e)
+			});
+			AttachClearButtonEvent(e);
 		});
 
 		return this;
 	};
-
-	// auto-start
-	/*$(function() {
-		$("#select").clearField();
-	});*/
 
 })(jQuery);
