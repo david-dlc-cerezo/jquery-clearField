@@ -23,10 +23,17 @@ Example
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
 <link rel="stylesheet" href="css/jquery.clearField.css">
 
-<p>
-<input name="test1" id="test1" clas="test" type='text'><br/>
-<input name="test2" id="test2" clas="test" type='text' value='abc'>
-</p>
+<table>
+    <tr>
+        <td><input name="test1" id="test1" clas="test" type='text'></td>
+        <td>Empty</td>
+    </tr>
+    <tr>
+        <td><input name="test2" id="test2" clas="test" type='text' value='abc'></td>
+        <td>Not empty</td>
+    </tr>
+</table>
+
 <script>
 	$('.test').clearField();
 </script>
