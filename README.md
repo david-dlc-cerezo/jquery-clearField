@@ -47,4 +47,5 @@ Sets the width (in pixels) to add to the input when the empty button is attached
 </script>
 ````
 ![Example #2](/example2a.png)
+
 ![Example #2 explained](/example2b.png)
