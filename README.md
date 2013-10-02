@@ -35,7 +35,7 @@ Example
 ![Example #1](/example1.png)
 
 
-##Use of ``widthChange``
+##Use of ``widthChange`` option
 Sets the width (in pixels) to add to the input when the empty button is attached.
 ````
 <script>
@@ -49,3 +49,22 @@ Sets the width (in pixels) to add to the input when the empty button is attached
 ![Example #2](/example2a.png)
 
 ![Example #2 explained](/example2b.png)
+
+##Use of ``clearText`` option
+Sets a different text as title to show when mouse is over the closing element. Usefull to show it in a 
+different language or just to customize the message.
+
+###Default functionality
+![Example #3 Default functionality](/example3a.png)
+
+###Customized text
+````
+<script>
+	$(function(){
+		$('.test').clearField({
+			clearText: 'Empty field'
+		});
+	});
+</script>
+````
+![Example #2 Customized text](/example3b.png)
